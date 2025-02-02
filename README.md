@@ -12,9 +12,9 @@ I am a technical specialist with a strong background in lighting design and a gr
 I specialize in applying machine learning and AI to solve real-world problems and enhance creative projects:
 - **Skills:** PyTorch, TensorFlow, Hugging Face, GANs, Transformers, Python.
 - **Projects:**  
-  - **[PhotoReportAutomation](link-to-project):** Automates photo report creation, including photo stamping (time, date, location), random filter application to simulate different phones and conditions, PowerPoint report generation, and Telegram photo download with resume capability. It also includes automatic rotation of horizontal photos to vertical.
-  - **[Telegram ChatBot](link-to-project):** A simple Telegram chatbot integrated with neural networks, demonstrating the ability to incorporate AI into messaging platforms.
-  - **[GAN MIDI Generator](link-to-project):** A work-in-progress GAN-based project for generating MIDI compositions. The model generates MIDI directly without preprocessing, and while the results are still rough, the goal is to improve them with better data processing and model refinement.
+- **[PhotoReportAutomation](#):** Automates photo report creation, including photo stamping (time, date, location), random filter application to simulate different phones and conditions, PowerPoint report generation, and Telegram photo download with resume capability. It also includes automatic rotation of horizontal photos to vertical.
+- **[Telegram ChatBot](#):** A simple Telegram chatbot integrated with neural networks, demonstrating the ability to incorporate AI into messaging platforms.
+- **[GAN MIDI Generator](#):** A work-in-progress GAN-based project for generating MIDI compositions. The model generates MIDI directly without preprocessing, and while the results are still rough, the goal is to improve them with better data processing and model refinement.
 
 ## Technical Background  
 - **Architectural Lighting Design:** Practical experience in technical design and visualization using AutoCAD, 3ds Max, Corona Render, and Photoshop.  
@@ -26,6 +26,7 @@ I specialize in applying machine learning and AI to solve real-world problems an
 
 ## Let’s Connect!  
 I’m excited to bring my skills in machine learning, AI, and automation to impactful projects. Feel free to explore my repositories and reach out via email or LinkedIn for collaboration opportunities.  
-- **Email**: alenaiashkina1@gmail.com  
-- **LinkedIn**: [Alena Iashkina](link-to-profile)
+- **Email**: alenaiashkina1@gmail.com
+- **LinkedIn**: [Alena Iashkina](#)
+
 
