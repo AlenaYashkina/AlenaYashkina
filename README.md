@@ -12,9 +12,9 @@ I am a technical specialist with a strong background in lighting design and a gr
 I specialize in applying machine learning and AI to solve real-world problems and enhance creative projects:
 - **Skills:** PyTorch, TensorFlow, Hugging Face, GANs, Transformers, Python.
 - **Projects:**  
-  - **[PhotoReportAutomation](link-to-project):** Automates photo report creation, sorting, and weather simulation with AI.
-  - **[GAN MIDI Generator](link-to-project):** A GAN-based project to generate complex MIDI compositions, including metal and progressive rock music.
-  - **[Telegram ChatBot](link-to-project):** A Telegram chatbot for automating tasks and providing intelligent responses based on AI models.
+  - **[PhotoReportAutomation](link-to-project):** Automates photo report creation, including photo stamping (time, date, location), random filter application to simulate different phones and conditions, PowerPoint report generation, and Telegram photo download with resume capability. It also includes automatic rotation of horizontal photos to vertical.
+  - **[Telegram ChatBot](link-to-project):** A simple Telegram chatbot integrated with neural networks, demonstrating the ability to incorporate AI into messaging platforms.
+  - **[GAN MIDI Generator](link-to-project):** A work-in-progress GAN-based project for generating MIDI compositions. The model generates MIDI directly without preprocessing, and while the results are still rough, the goal is to improve them with better data processing and model refinement.
 
 ## Technical Background  
 - **Architectural Lighting Design:** Practical experience in technical design and visualization using AutoCAD, 3ds Max, Corona Render, and Photoshop.  
