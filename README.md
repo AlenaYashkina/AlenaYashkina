@@ -1,7 +1,7 @@
-# 👩‍💻 Alena's Portfolio  
+# Alena Yashkina - AI and Machine Learning Specialist | Lighting Design | GitHub Portfolio
 
 ## About Me  
-I am a technical specialist transitioning into the field of neural networks and machine learning. With a strong academic background and professional experience, I bring a unique perspective to problem-solving, automation, and AI applications.  
+I am a technical specialist with a strong background in lighting design and a growing expertise in machine learning and neural networks. I have hands-on experience with PyTorch, TensorFlow, and Hugging Face, and I'm passionate about applying AI to creative projects such as music generation, automation, and image processing.
 
 ## Education  
 - **Bachelor’s Degree:** Lighting Engineering, Moscow Power Engineering Institute.  
@@ -9,12 +9,12 @@ I am a technical specialist transitioning into the field of neural networks and 
 - **Self-Study in Machine Learning:** Focused on neural networks, transformers, and real-world AI applications.  
 
 ## Neural Networks and AI  
-I specialize in applying AI and machine learning to solve practical problems:  
-- **Skills:** PyTorch, TensorFlow, Hugging Face.  
+I specialize in applying machine learning and AI to solve real-world problems and enhance creative projects:
+- **Skills:** PyTorch, TensorFlow, Hugging Face, GANs, Transformers, Python.
 - **Projects:**  
-  - Transformer models for text and music generation.  
-  - A MIDI composition generator built with Python and ML.  
-  - Automated photo reporting tools using AI for sorting and presentation generation.  
+  - **[PhotoReportAutomation](link-to-project):** Automates photo report creation, sorting, and weather simulation with AI.
+  - **[GAN MIDI Generator](link-to-project):** A GAN-based project to generate complex MIDI compositions, including metal and progressive rock music.
+  - **[Telegram ChatBot](link-to-project):** A Telegram chatbot for automating tasks and providing intelligent responses based on AI models.
 
 ## Technical Background  
 - **Architectural Lighting Design:** Practical experience in technical design and visualization using AutoCAD, 3ds Max, Corona Render, and Photoshop.  
@@ -25,4 +25,7 @@ I specialize in applying AI and machine learning to solve practical problems:
 [View Certificate](https://cert.efset.org/iGXKim)
 
 ## Let’s Connect!  
-I’m eager to bring my skills in AI and machine learning to impactful projects. Feel free to explore my repositories and reach out to collaborate!  
+I’m excited to bring my skills in machine learning, AI, and automation to impactful projects. Feel free to explore my repositories and reach out via email or LinkedIn for collaboration opportunities.  
+- **Email**: alenaiashkina1@gmail.com  
+- **LinkedIn**: [Alena Iashkina](link-to-profile)
+
