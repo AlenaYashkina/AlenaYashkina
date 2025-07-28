@@ -5,6 +5,8 @@
 ![License](https://img.shields.io/badge/License-Apache%202.0-lightgrey)  
 ![GitHub last commit](https://img.shields.io/github/last-commit/AlenaYashkina/photo_reports)
 
+📫 alenaiashkina1@gmail.com | Batumi, Georgia
+
 With a background in technical design and lighting engineering, I transitioned into AI development with a focus on generative models and workflow automation. My approach combines engineering discipline with curiosity-driven research through tools like GPT-4.
 
 ---
