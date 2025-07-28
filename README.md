@@ -44,7 +44,9 @@ Replaces manual editing in Photoshop and PowerPoint:
 - Simulates basic camera behavior (resolution, grain, coloration)  
 - Automatically inserts photos into ready-to-send presentation templates  
 Created using GPT-4 and prompt engineering in a production setting to reduce workload and eliminate human error.  
-[🔗 View Project](https://github.com/AlenaYashkina/photo_reports)
+### Photo Report Automation  
+[GitHub » photo_reports](https://github.com/AlenaYashkina/photo_reports)  
+Status: WIP  
 
 ---
 
