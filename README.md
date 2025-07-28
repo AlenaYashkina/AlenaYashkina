@@ -1,4 +1,4 @@
-# Alena Iashkina  
+# Alena Yashkina  
 **Prompt Engineer | Generative AI Developer | GPT-based Automation**
 
 With a background in technical design and lighting engineering, I transitioned into AI development with a focus on generative models and workflow automation. My approach combines engineering discipline with curiosity-driven research through tools like GPT-4.
