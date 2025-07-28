@@ -1,59 +1,50 @@
-# Alena Yashkina  
-**Prompt Engineer | Generative AI Developer | GPT-based Automation**
+# Alena Yashkina
 
-![Python](https://img.shields.io/badge/Python-3.10-blue)  
-![License](https://img.shields.io/badge/License-Apache%202.0-lightgrey)  
-![GitHub last commit](https://img.shields.io/github/last-commit/AlenaYashkina/photo_reports)
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![License](https://img.shields.io/badge/License-Apache%202.0-lightgrey)
+![Last commit](https://img.shields.io/github/last-commit/AlenaYashkina/AlenaYashkina)
 
-📫 alenaiashkina1@gmail.com | Batumi, Georgia
+I’m an AI/ML enthusiast with a background in architectural lighting design (AutoCAD, 3ds Max) and 8 years of automation experience. Now I apply PyTorch, Transformers and Hugging Face to real-world tasks.
 
-With a background in technical design and lighting engineering, I transitioned into AI development with a focus on generative models and workflow automation. My approach combines engineering discipline with curiosity-driven research through tools like GPT-4.
+📫 alena.yashkina@example.com | 🌍 Tbilisi, Georgia
 
----
+## Education
 
-## Areas of Focus
-- Custom GPT-4 powered tools for workflow automation  
-- Neural architecture prototyping: GANs, Transformers, RNN, LSTM, VAE, Diffusion  
-- Symbolic music generation (multitrack MIDI)  
-- Visual reporting automation via Python and LLMs  
-- Prompt-based exploration and rapid prototyping  
+- Bachelor’s Degree: Lighting Engineering, Moscow Power Engineering Institute
 
----
+## Skills
 
-## Technical Skills
-- **AI & Tools**: GPT-4, ChatGPT, Stable Diffusion, DALL·E  
-- **Python (via GPT guidance)**: Pandas, NumPy, OpenCV, Tesseract, Hugging Face, PyTorch, TensorFlow, pretty_midi  
-- **Automation**: visual stamping, simulated metadata, batch PowerPoint generation  
-- **Design Tools**: Photoshop, 3ds Max, AutoCAD, Dialux  
+PyTorch · TensorFlow · Hugging Face · miditok · Transformers · Selenium · Python
 
----
+## Featured Projects
 
-## Projects
+### Photo Reports Automation
+- Repository: https://github.com/AlenaYashkina/photo-reports
+- Status: WIP
+- Description: Автоматическая сборка PPT/PDF отчётов по папкам с фотографиями.
 
-### MIDI Multitrack GAN  
-A custom GAN + Transformer architecture for symbolic music generation in multitrack MIDI format.  
-The model structure integrates ideas from RNN, LSTM, VAE and Diffusion models.  
-Built entirely with GPT-4 guidance, including architecture design, preprocessing, training, and sampling logic.  
-**Status**: Architecture implemented, generation quality in progress.  
-[🔗 View Project](https://github.com/AlenaYashkina/midi-gan-lab)
+### Metal MIDI LoRA Adapter
+- Model Hub: https://huggingface.co/alena/metal-midi-lora
+- Status: Ready
+- Description: LoRA-адаптер для генерации metal-риффов на базе SkyTNT/midi-model.
 
----
+### MIDI Multitrack GAN
+- Repository: https://github.com/AlenaYashkina/midi-gan
+- Status: PoC
+- Description: Генерация многодорожечных MIDI с GAN (токенизация, sample .mid в examples/).
 
-### Photo Report Automation  
-A Python-based tool developed for automating photo documentation in real-world reporting scenarios (festive city lighting).  
-Replaces manual editing in Photoshop and PowerPoint:  
-- Adds visual stamps (date, time, location) with configurable logic  
-- Simulates basic camera behavior (resolution, grain, coloration)  
-- Automatically inserts photos into ready-to-send presentation templates  
-Created using GPT-4 and prompt engineering in a production setting to reduce workload and eliminate human error.  
+## Technical Background
 
-[GitHub » photo_reports](https://github.com/AlenaYashkina/photo_reports)  
-Status: WIP  
+- Lighting design (AutoCAD, 3ds Max, Dialux)
+- Automation scripts (Python, Selenium)
+- OCR and image processing (OpenCV, Tesseract)
+- Neural networks (GANs, Transformers, Stable Diffusion)
+- Music generation (miditok, LoRA fine-tuning)
 
----
+## Contact
 
-## Background  
-- Bachelor's degree in Lighting Engineering (MPEI)  
-- Java Developer training (K.A.T.A. Academy)  
-- Project Management Certificate (Skolkovo Business School)  
-- 8+ years of experience in engineering roles, including design, logistics, procurement, and automation  
+Feel free to connect on LinkedIn or via email.
+
+## License
+
+Apache 2.0
