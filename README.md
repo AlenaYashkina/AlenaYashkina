@@ -6,7 +6,7 @@
 
 I’m an AI/ML enthusiast with a background in architectural lighting design (AutoCAD, 3ds Max) and 8 years of automation experience. Now I apply PyTorch, Transformers and Hugging Face to real-world tasks.
 
-📫 alena.yashkina@example.com | 🌍 Tbilisi, Georgia
+📫 alena.yashkina@example.com | 🌍 Batumi, Georgia
 
 ## Education
 
