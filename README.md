@@ -105,6 +105,6 @@ Most of this started as internal tools; I’ll gradually open what’s stable en
 
 ## Contact
 
-- Email: _your.email@example.com_  
+- Email: alenaiashkina1@gmail.com
 - Telegram: `@alenayashkina`  
 - [LinkedIn](https://www.linkedin.com/in/%D0%B0%D0%BB%D1%91%D0%BD%D0%B0-%D1%8F%D1%88%D0%BA%D0%B8%D0%BD%D0%B0-a9994a35a/)
