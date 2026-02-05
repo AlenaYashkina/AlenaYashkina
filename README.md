@@ -31,4 +31,4 @@ Python, LLM / prompt engineering, REST API, JSON, SQL, Git, Telegram API.
 
 Telegram: @alena_yashkina  
 Email: alena.yashkina1994@yandex.ru  
-LinkedIn: (вставь ссылку)
+LinkedIn: (https://www.lnkedin.com/in/alena-yashkina-a9994a35a/)
