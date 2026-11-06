@@ -60,7 +60,7 @@ A fictional employee enters a 25 GEL repair expense using an internal form. Anot
 
 ## Three workflows · recreated from actual tools, with synthetic records
 
-These screens **reconstruct the layout and task flow** of internal tooling used in day-to-day operations: a spreadsheet-backed expense interface, an owner settlement/reporting workflow, and an assistant retrieving guest messages from a private database. They use real types of controls, calculations and integration boundaries. **All apartment IDs, people, dates, financial values and messages are invented.** They are not pixel-for-pixel screenshots from the internal deployment.
+The finance and owner-report screens have been **reconstructed directly from their existing HTML/CSS and application controls**, not imagined from a feature list. The third screen represents the actual ChatGPT-based guest message retrieval workflow rather than a separate CRM. **All people, properties, messages, dates, amounts and company branding have been replaced.** These are sanitized visual reconstructions, not unredacted screenshots or functioning public deployments.
 
 ### 1. Expense management and employee reimbursements
 
@@ -68,7 +68,7 @@ These screens **reconstruct the layout and task flow** of internal tooling used 
 
 **Real workflow:** entries are created or reviewed through a lightweight browser interface, while a Google Sheet is also used to record expenses and employee reimbursements. The workflow has to reconcile entries regardless of whether a colleague entered them in the form or in the spreadsheet.
 
-**Displayed scenario:** choose the month and property, filter status, inspect entries from the web form or Google Sheets, and check pending versus approved reimbursements. The displayed sample amounts and employee labels are fictional.
+**Displayed scenario:** the original screen layout is preserved: an **Operation** form (expense or cash reimbursement), person/property/category/date filters, an operation history table, and a printable side-by-side preview of each employee's expenses, cash reimbursements and current balance. The filtered-period difference is not necessarily the full ledger balance. The displayed amounts and employees are fictional.
 
 **Technical boundaries:** Google Sheets is the expense ledger; the UI needs to refresh source rows and surface write/read failures. The illustration is not a claim that all data synchronization edge cases have been independently tested.
 
@@ -78,7 +78,7 @@ These screens **reconstruct the layout and task flow** of internal tooling used 
 
 **Real workflow:** import bookings for the selected property and period, calculate amounts attributable to an owner, convert currency using the National Bank of Georgia rate, incorporate expenses, review the settlement and save the statement as a PDF.
 
-**Displayed scenario:** a fictional property with three bookings, a sample USD/GEL rate and deductions. This screen follows the actual business structure of the report: **Bookings → Expenses → Final settlement**, including owner amounts, currency conversion and net owner income. Neither the numbers nor the apartment refer to a real owner.
+**Displayed scenario:** a fictional property with two sample bookings, a sample USD/GEL rate and deductions. This screen follows the actual business structure of the report: **Bookings → Expenses → Final settlement**, including owner amounts, currency conversion and net owner income. Neither the numbers nor the apartment refer to a real owner.
 
 **Technical boundaries:** a displayed exchange rate needs a source and reporting date; financial periods, booking ownership and expenses must be checked before PDF export. The real PDF format informed this sanitized layout; no real PDF or client details are embedded.
 
@@ -88,7 +88,7 @@ These screens **reconstruct the layout and task flow** of internal tooling used 
 
 **Real workflow:** a Telegram listener stores incoming and outgoing messages in Supabase through an ingestion function. The database associates people, chats, messages and bookings; ChatGPT can retrieve relevant history and help prepare a proposed reply. A staff member checks, edits and sends the message.
 
-**Displayed scenario:** an operator searches for a fictional guest's hot-water complaint and receives two cited messages plus a suggested reply. The illustration follows the **actual assistant-based workflow**, not a fictional standalone guest-support product.
+**Displayed scenario:** the operator asks ChatGPT to retrieve a fictional guest's hot-water conversation. The illustration shows two message excerpts with source context and a suggested reply to review and send separately. It follows the **actual assistant-based workflow**, not an invented standalone support product; its chat styling is indicative, not a capture of private ChatGPT history.
 
 **Technical boundaries:** retrieval must respect chat exclusions and message identity; ChatGPT text is a draft, not an automatically sent message. Muted or excluded chats are not treated as searchable sources.
 
