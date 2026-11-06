@@ -1,57 +1,49 @@
 # Alena Yashkina
 
-**Workflow Automation · AI-assisted Internal Tools · Operations Systems**  
-Based in Batumi, Georgia · Open to remote opportunities
+**AI-assisted Automation · Business Workflows · Internal Tools**  
+Batumi, Georgia · Open to remote work
 
-I turn fragmented operational processes into working tools: from mapping requirements and designing data flows to configuring integrations, checking results, documenting limitations, and supporting day-to-day use. I use AI coding assistants to implement and iterate on solutions; my contribution is workflow design, specification, integration, testing and delivery rather than a claim of writing every line of code by hand.
+I turn repetitive, fragmented business processes into practical tools: structured data, connected services, simple interfaces, and workflows people can actually use. My strength is **taking an idea from an operational problem to a working solution** — defining the process, building with AI coding tools, connecting systems, troubleshooting, and validating the result.
 
-I have 9 years of experience in architectural lighting and technical documentation, alongside hands-on operational coordination and process automation for property management.
+Alongside my automation projects, I bring **9 years of technical design experience** and hands-on responsibility for operations in property management.
 
-## Selected work
+## Featured projects
 
-### [RentGram — Telegram listing extraction and search](https://github.com/AlenaYashkina/rent_gram)
-[Demo](https://rent-gram.netlify.app/) · [Source](https://github.com/AlenaYashkina/rent_gram)
+### [RentGram — Telegram listings → structured property search](https://github.com/AlenaYashkina/rent_gram)
+**[Explore the demo](https://rent-gram.netlify.app/)** · [View code](https://github.com/AlenaYashkina/rent_gram)
 
-A pipeline to collect unstructured Telegram real-estate posts, deduplicate them, extract fields using an LLM, and browse the results in a React interface. **Limitation:** the public listing snapshot needs additional currency/offer-type validation; it must not be treated as live or verified rental inventory.
+Collects and deduplicates unstructured Telegram posts, extracts fields with a local LLM and provides a filterable React interface. Public demo uses fictional listings so it can be explored without Telegram credentials or third-party contacts.
 
-### [Cluster Forge — human-in-the-loop photo sorting](https://github.com/AlenaYashkina/cluster-forge)
-[Source and walkthrough](https://github.com/AlenaYashkina/cluster-forge)
+### [Cluster Forge — human-in-the-loop image sorting](https://github.com/AlenaYashkina/cluster-forge)
+**[See walkthrough and demo GIF](https://github.com/AlenaYashkina/cluster-forge#preview)** · [View code](https://github.com/AlenaYashkina/cluster-forge)
 
-Users label example images; a CLIP-based similarity workflow can suggest categories and help route later images. I designed the review-and-correction workflow for photographic reporting. CLIP similarity is **not** a measured prediction accuracy, and the model weights are not retrained.
+A visual labeling workflow powered by CLIP image similarity. People categorize examples; the system recommends clusters for new images, and users review uncertain cases. Designed for organizing large photo collections before reporting.
 
-### [Photo Report Generator — batch presentation production](https://github.com/AlenaYashkina/photo-report-generator)
-[Source and examples](https://github.com/AlenaYashkina/photo-report-generator)
+### [Photo Report Generator — batch image processing → PowerPoint](https://github.com/AlenaYashkina/photo-report-generator)
+**[See reporting workflow](https://github.com/AlenaYashkina/photo-report-generator#pipeline-flow)** · [View code](https://github.com/AlenaYashkina/photo-report-generator)
 
-Tools for processing large collections of worksite photographs and assembling PowerPoint photo reports. The workflow handled tens of thousands of photographs over its use; no independently measured percentage of time saved is claimed.
+A configurable pipeline for reading dated photo folders, processing and stamping images, and assembling PPTX reports. Originated in real architectural-lighting maintenance reporting with large photo collections.
 
-### [CRM Orders Automation — technical assignment](https://github.com/AlenaYashkina/testing)
-[Demo](https://project-tgn4y.vercel.app/) · [Source](https://github.com/AlenaYashkina/testing)
+### [CRM Orders Dashboard — integration exercise](https://github.com/AlenaYashkina/testing)
+**[Explore the independent dashboard demo](https://project-tgn4y.vercel.app/demo)** · [View code](https://github.com/AlenaYashkina/testing)
 
-A **test assignment**, not a claim of production deployment: sample orders, a RetailCRM → Supabase synchronization flow, a Next.js dashboard, and Telegram notification logic. Live synchronization can depend on external test credentials.
+A Next.js dashboard built around 50 sample orders, with a separate RetailCRM → Supabase sync implementation and Telegram alert logic. The public portfolio page works independently of external CRM credentials. This was a **technical assignment**, not a production client deployment.
 
-### [Telegram Media Loader](https://github.com/AlenaYashkina/tg_media_loader)
-A Telegram media-download and date/album organization utility, complementary to the photo sorting and reporting workflow.
+## More about my work
 
-### [Property-management operations automation — anonymized case](cases/property-management-automation.md)
+**[Property-management operations automation](cases/property-management-automation.md)** — an anonymized case covering operational databases, Jira workflows, issue follow-ups, expenses, reporting and LLM-assisted information retrieval. Real guest and company data remain private.
 
-Workflow design across booking messages, task management, data records and lightweight operational dashboards. No real guest records, private repositories or unsupported ROI claims are published.
+**[Telegram Media Loader](https://github.com/AlenaYashkina/tg_media_loader)** — media collection and album/date organization, complementing photo sorting and reporting.
 
-## What I contribute
+## What I bring
 
-- Translate operational needs into requirements, data structures, acceptance criteria and usable interfaces
-- Build and iterate with AI coding assistants; configure and troubleshoot scripts and integrations
-- Organize workflows around Jira, Supabase, Google Sheets and lightweight web interfaces
-- Validate outputs, investigate edge cases and document what is and is not working
-- Coordinate stakeholders, onboarding, suppliers, logistics and routine service operations
+- **Process design:** translate messy workflows into clear steps, data models and acceptance criteria.
+- **Practical AI-assisted delivery:** use LLMs to generate and iterate on code; configure APIs, troubleshoot and verify outputs.
+- **Integrations and internal tools:** Jira, Supabase, Google Sheets, lightweight web interfaces, structured JSON data.
+- **Operations experience:** ownership of tasks, coordination, client communication and continuous process improvement.
 
-**Working tools:** LLM assistants, Git/GitHub, APIs, JSON, Google Sheets, Jira, Supabase; practical exposure to Python and JavaScript projects. I do not present AI-generated implementation as independent expert-level programming proficiency.
+**Technical background:** Git/GitHub, APIs, LLM tools, Python/JavaScript projects (AI-assisted implementation), JSON, spreadsheets, Jira and Supabase. Previous domain: AutoCAD, DIALux, 3ds Max, Photoshop, technical drawings and documentation.
 
-**Previous domain:** architectural lighting design (AutoCAD, DIALux, 3ds Max, Photoshop), technical drawings and documentation.
+## Get in touch
 
-## Contact
-
-- [GitHub](https://github.com/AlenaYashkina)
-- [LinkedIn](https://www.linkedin.com/in/alena-yashkina)
-- [Telegram](https://t.me/alena_yashkina)
-
-Please contact me through the linked profiles. Other email addresses appearing in older project documentation should be confirmed before reuse.
+[GitHub](https://github.com/AlenaYashkina) · [Telegram](https://t.me/alena_yashkina) · [LinkedIn](https://www.linkedin.com/in/alena-yashkina)
