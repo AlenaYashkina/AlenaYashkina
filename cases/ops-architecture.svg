@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 350" role="img" aria-label="Property operations workflow architecture illustration">
+<rect width="1080" height="350" rx="22" fill="#0d1424"/>
+<text x="36" y="42" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#f0f6ff">Operations automation · workflow architecture</text>
+<text x="36" y="68" font-family="Arial, sans-serif" font-size="13" fill="#a8bad7">Anonymized conceptual view — no live company systems or data</text>
+<g font-family="Arial, sans-serif">
+<rect x="35" y="104" width="225" height="172" rx="15" fill="#16243c" stroke="#3f6086"/>
+<text x="53" y="134" font-size="15" font-weight="700" fill="#b8deff">01 · INPUT</text>
+<text x="53" y="169" font-size="16" fill="#f1f5fc">Guest messages</text>
+<text x="53" y="194" font-size="16" fill="#f1f5fc">Booking updates</text>
+<text x="53" y="219" font-size="16" fill="#f1f5fc">Expense forms</text>
+<text x="53" y="249" font-size="12" fill="#a8bad7">Disparate source systems</text>
+<path d="M260 187 H304" stroke="#78b8f6" stroke-width="3"/><path d="m293 179 12 8-12 8" fill="none" stroke="#78b8f6" stroke-width="3"/>
+<rect x="309" y="104" width="221" height="172" rx="15" fill="#18283d" stroke="#4c8196"/>
+<text x="327" y="134" font-size="15" font-weight="700" fill="#adf0df">02 · NORMALIZE</text>
+<text x="327" y="169" font-size="16" fill="#f1f5fc">Property &amp; booking IDs</text>
+<text x="327" y="194" font-size="16" fill="#f1f5fc">Structured records</text>
+<text x="327" y="219" font-size="16" fill="#f1f5fc">Review &amp; validation</text>
+<text x="327" y="249" font-size="12" fill="#a8bad7">Supabase · Google Sheets</text>
+<path d="M530 187 H574" stroke="#78b8f6" stroke-width="3"/><path d="m563 179 12 8-12 8" fill="none" stroke="#78b8f6" stroke-width="3"/>
+<rect x="579" y="104" width="218" height="172" rx="15" fill="#1c263f" stroke="#806eae"/>
+<text x="597" y="134" font-size="15" font-weight="700" fill="#d5c2ff">03 · ACTION</text>
+<text x="597" y="169" font-size="16" fill="#f1f5fc">Jira tasks &amp; owners</text>
+<text x="597" y="194" font-size="16" fill="#f1f5fc">Follow-up tracking</text>
+<text x="597" y="219" font-size="16" fill="#f1f5fc">Human decisions</text>
+<text x="597" y="249" font-size="12" fill="#a8bad7">LLM-assisted interface</text>
+<path d="M797 187 H841" stroke="#78b8f6" stroke-width="3"/><path d="m830 179 12 8-12 8" fill="none" stroke="#78b8f6" stroke-width="3"/>
+<rect x="846" y="104" width="199" height="172" rx="15" fill="#1a3035" stroke="#488778"/>
+<text x="864" y="134" font-size="15" font-weight="700" fill="#a9ebcf">04 · OUTPUT</text>
+<text x="864" y="169" font-size="16" fill="#f1f5fc">Status visibility</text>
+<text x="864" y="194" font-size="16" fill="#f1f5fc">Reconciled expenses</text>
+<text x="864" y="219" font-size="16" fill="#f1f5fc">Owner reporting</text>
+<text x="864" y="249" font-size="12" fill="#a8bad7">Human-reviewed updates</text>
+<rect x="35" y="297" width="1010" height="33" rx="9" fill="#101f31"/>
+<text x="53" y="317" font-size="13" fill="#a8bad7">Reliability constraints: permission boundaries · record identity · idempotency · reconciliation · explicit ownership</text>
+</g></svg>
