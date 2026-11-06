@@ -32,6 +32,10 @@ A **test assignment**, not a claim of production deployment: sample orders, a Re
 ### [Telegram Media Loader](https://github.com/AlenaYashkina/tg_media_loader)
 A Telegram media-download and date/album organization utility, complementary to the photo sorting and reporting workflow.
 
+### [Property-management operations automation — anonymized case](cases/property-management-automation.md)
+
+Workflow design across booking messages, task management, data records and lightweight operational dashboards. No real guest records, private repositories or unsupported ROI claims are published.
+
 ## What I contribute
 
 - Translate operational needs into requirements, data structures, acceptance criteria and usable interfaces
