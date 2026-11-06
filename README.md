@@ -24,10 +24,6 @@ A visual labeling workflow powered by CLIP image similarity. People categorize e
 
 A configurable pipeline for reading dated photo folders, processing and stamping images, and assembling PPTX reports. Originated in real architectural-lighting maintenance reporting with large photo collections.
 
-### [CRM Orders Dashboard — integration exercise](https://github.com/AlenaYashkina/testing)
-**[Explore the independent dashboard demo](https://project-tgn4y.vercel.app/demo)** · [View code](https://github.com/AlenaYashkina/testing)
-
-A Next.js dashboard built around 50 sample orders, with a separate RetailCRM → Supabase sync implementation and Telegram alert logic. The public portfolio page works independently of external CRM credentials. This was a **technical assignment**, not a production client deployment.
 
 ## More about my work
 
