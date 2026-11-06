@@ -1,114 +1,64 @@
-# Property-management operations automation
+# Connected operations workspace · property management
 
-**Role:** operations workflow design, AI-assisted integration, delivery and maintenance  
-**Stack:** Jira · Supabase · Google Sheets · Apps Script · lightweight web forms · LLM workflows  
-**Scope:** real operational work; diagrams and all records below are anonymized or fictional.
+**My role:** workflow and data-model design, AI-assisted implementation, integration, verification and operational use.  
+**Tools:** Supabase · ChatGPT plugins · Jira / Forge · Telegram / Telethon · Confluence · Google Sheets / Apps Script.
 
-![System-specific data flows across Telegram, Supabase, Jira, finance tools and scheduled publishing](ops-architecture.svg)
+## What I built
 
-The diagram separates **four implemented workflows**, rather than suggesting that guest conversations, Jira issues, financial records and social posting all pass through a single pipeline. It describes integrations at the system level without exposing endpoints, credentials, customer details or private repositories.
+I connected **business records, guest conversations and team tasks** into one practical working process. Instead of searching separate apartment spreadsheets, chats and task boards, a team member can ask ChatGPT a question in ordinary language. It checks connected sources, retrieves relevant context and helps prepare the next action.
 
-## The problem
+**Supabase holds business facts. Jira holds work and decisions. ChatGPT is the conversational interface to both.**
 
-Managing an apartment portfolio means processing bookings, guest requests, check-ins/check-outs, cleaning, repairs, utilities, staff assignments, owner communication and expenses. When the relevant facts are spread across several channels, small teams lose time cross-checking spreadsheets and chats, and urgent work can become ownerless.
+![System-specific integration map: Supabase, messages, Jira and related reporting tools](ops-architecture.svg)
 
-## What I built and operated
+## How it works
 
-**A structured apartment information layer.** Organized property identifiers and operational details in a Supabase-backed database, so an assistant and internal tools could refer to one property record rather than relying on ambiguous room names in messages.
+### 1. Supabase: linked operational data
 
-**Task and issue coordination.** Designed Jira workflows for assignments, priorities, maintenance issues and follow-ups, using AI-generated scripts and integrations for routine administration. Human decisions — such as approvals and guest promises — remained assigned to responsible staff.
+A structured database contains apartment and complex profiles, owners and contacts, bookings and payments, distribution listings, utilities and access/payment references, content records, and **Telegram conversations**. Stable IDs link people, messages, bookings and apartments when an association is known.
 
-**Expense input and review.** Designed lightweight HTML/Apps Script interfaces around Google Sheets for expenses and reimbursements. The difficult part was not just the form: the interface had to reflect changes entered elsewhere in the same table, including entries recorded by a teammate.
+- **Messages:** a Telethon listener ingests incoming and outgoing Telegram messages through a Supabase function, with checkpoints, retry handling and exclusions.
+- **Bookings:** the booking provider has **not made an integration API available to this team**. I therefore use its exports and reconcile new or changed bookings in Supabase, rather than claim a real-time automatic feed. Information can become outdated between imports.
+- **Apartments and reference codes:** new property records, utility accounts and payment references can be maintained in their respective tables. Completeness is not assumed: a missing code must be verified, never guessed.
 
-**LLM-assisted operational retrieval.** Used structured queries and an AI assistant to speed up looking up apartment information and turning natural-language requests into reviewable operational actions. LLM output is not automatically authoritative; the source records and user confirmation matter.
+### 2. ChatGPT: search and context in plain language
 
-**Owner and staff communication.** Prepared data views and reporting workflows that combine records from different parts of the operation.
+Connected **Supabase and Atlassian/Jira plugins** let ChatGPT look up apartment information, find a specific guest's conversation, inspect newly stored messages, and check linked booking and issue context.
 
-### My contribution
+**Example request:**
 
-I mapped requirements, chose record structures and responsibilities, specified changes to AI coding assistants, configured integrations, debugged failures, validated results and trained the workflow around how colleagues actually worked. This is **AI-assisted implementation**, not a claim of expert hand-written Python or a standalone production SaaS.
+> “Find the latest guest messages about the hot-water problem, identify the apartment, check its open Jira issue and draft a reply.”
 
-## Example 1 · From guest problem to a resolved issue
+The assistant retrieves the records, helps identify the next step and proposes a message. **A human checks the facts and sends the response.** These actions happen through the connected ChatGPT workspace; there is no separate guest-support dashboard to demonstrate.
 
-All entities in this example are fictional.
+### 3. Jira + Forge: work tied to the same apartment records
 
-| Stage | Example record | Review rule |
-| --- | --- | --- |
-| Incoming request | `EX-102`: no hot water | Resolve apartment ID and booking context |
-| Structured issue | `ISSUE-0007`, category `maintenance` | Explicit owner, priority, current status |
-| Assignment | Technician A, due 2026-11-08 | No unconditional promise to guest before confirmation |
-| Follow-up | `assigned → in_progress → resolved` | Status must reflect actual work, not an LLM guess |
-| Report | Resolution time and expense reference | Preserve audit trail and avoid exposing guest contacts |
+Jira manages tasks, incidents, leads, priorities, assignees, statuses, blockers and follow-ups. I built/configured a **Supabase-backed apartment custom field using Jira Forge**: users select a residential complex and then an apartment, while apartment identity and derived details come from the database rather than a duplicate list.
 
-## Example 2 · Expense reconciliation
+The assistant can find work linked to an apartment, create/update tasks and follow-ups, and help reconcile new guest information with existing lead records. **Jira remains authoritative for task state; Supabase remains authoritative for property and booking data.**
 
-A fictional employee enters a 25 GEL repair expense using an internal form. Another teammate records a different expense directly in Google Sheets. Both records must appear in the review interface, and the same expense must not be entered twice.
+## Other tools in the same operational environment
 
-```json
-{
-  "expense_id": "DEMO-EXP-0004",
-  "property_id": "EX-102",
-  "date": "2026-11-06",
-  "category": "repair",
-  "amount": 25,
-  "currency": "GEL",
-  "reimbursement_status": "pending"
-}
-```
+### Expenses and reimbursements
 
-**Acceptance criteria used when reviewing this kind of workflow:** a stable row ID, read-after-write confirmation, timestamp and currency validation, duplicate handling, and a clear error state when the source table cannot be reached. A good-looking interface alone is not proof that its data is synchronized.
+![Reconstruction of the actual expenses form, filters, ledger and printable balance view](screens/expenses.svg)
 
-## Three workflows · recreated from actual tools, with synthetic records
+A **Google Sheets + Apps Script** interface for recording expenses and cash reimbursements, filtering transactions and inspecting employee balances. The image reproduces the implemented two-column layout using invented records. This is a separate finance ledger, **not an assertion that every expense is stored in Supabase**.
 
-The finance and owner-report screens have been **reconstructed directly from their existing HTML/CSS and application controls**, not imagined from a feature list. The third screen represents the actual ChatGPT-based guest message retrieval workflow rather than a separate CRM. **All people, properties, messages, dates, amounts and company branding have been replaced.** These are sanitized visual reconstructions, not unredacted screenshots or functioning public deployments.
+### Owner settlement reports
 
-### 1. Expense management and employee reimbursements
+![Reconstruction of actual booking/expense editor and printable PDF report](screens/owners.svg)
 
-![Expense and reimbursement interface recreated with fictional rows](screens/expenses.svg)
+An HTML reporting tool imports booking CSV data, calculates the owner's share where needed, converts amounts using National Bank of Georgia exchange rates, supports expense adjustments, and previews/exports a PDF. The published image follows the working layout but contains fictional owners, units and amounts.
 
-**Real workflow:** entries are created or reviewed through a lightweight browser interface, while a Google Sheet is also used to record expenses and employee reimbursements. The workflow has to reconcile entries regardless of whether a colleague entered them in the form or in the spreadsheet.
+### Scheduled Telegram listings
 
-**Displayed scenario:** the original screen layout is preserved: an **Operation** form (expense or cash reimbursement), person/property/category/date filters, an operation history table, and a printable side-by-side preview of each employee's expenses, cash reimbursements and current balance. The filtered-period difference is not necessarily the full ledger balance. The displayed amounts and employees are fictional.
+I also built a scheduler with controls for posting channels, apartments, listing text, photos and the publication queue, plus background operation and restart handling. This is a **separate publishing process**, not part of the guest-message archive.
 
-**Technical boundaries:** Google Sheets is the expense ledger; the UI needs to refresh source rows and surface write/read failures. The illustration is not a claim that all data synchronization edge cases have been independently tested.
+## My contribution and boundaries
 
-### 2. Owner settlement reports with PDF export
+I structured the data and workflows, designed the interaction between tools, implemented integrations with AI coding assistants, diagnosed failures, tested operational scenarios and maintained the setup used by the team. I do **not** claim that I hand-coded every module, that booking exports synchronize in real time, or that an AI assistant autonomously sends guest replies or approves financial decisions.
 
-![Owner statement workflow reconstructed from actual reporting features](screens/owners.svg)
+**Privacy:** all public screen examples and identifiers are synthetic or anonymized. Production data, messages, company name, credentials and private repository contents are not published here.
 
-**Real workflow:** import bookings for the selected property and period, calculate amounts attributable to an owner, convert currency using the National Bank of Georgia rate, incorporate expenses, review the settlement and save the statement as a PDF.
-
-**Displayed scenario:** a fictional property with two sample bookings, a sample USD/GEL rate and deductions. This screen follows the actual business structure of the report: **Bookings → Expenses → Final settlement**, including owner amounts, currency conversion and net owner income. Neither the numbers nor the apartment refer to a real owner.
-
-**Technical boundaries:** a displayed exchange rate needs a source and reporting date; financial periods, booking ownership and expenses must be checked before PDF export. The real PDF format informed this sanitized layout; no real PDF or client details are embedded.
-
-### 3. ChatGPT-assisted guest conversation search
-
-![Assistant conversation with retrieved Telegram records and a manually reviewed draft](screens/guest-assistant.svg)
-
-**Real workflow:** a Telegram listener stores incoming and outgoing messages in Supabase through an ingestion function. The database associates people, chats, messages and bookings; ChatGPT can retrieve relevant history and help prepare a proposed reply. A staff member checks, edits and sends the message.
-
-**Displayed scenario:** the operator asks ChatGPT to retrieve a fictional guest's hot-water conversation. The illustration shows two message excerpts with source context and a suggested reply to review and send separately. It follows the **actual assistant-based workflow**, not an invented standalone support product; its chat styling is indicative, not a capture of private ChatGPT history.
-
-**Technical boundaries:** retrieval must respect chat exclusions and message identity; ChatGPT text is a draft, not an automatically sent message. Muted or excluded chats are not treated as searchable sources.
-
-### 4. Scheduled listing publisher
-
-The internal publishing tool has controls for **Telegram destination chats, properties, listing text, photos and a publication queue**. It schedules posts and includes background execution/restart handling. This is a separate integration path in the architecture diagram, not a feature of the expense UI or guest conversation search.
-
-The public portfolio shows the architecture and scope, not real posting logs, private channels or credentials. No unmeasured reach, delivery-rate or time-savings claim is made.
-
-## System design decisions
-
-- **Source of truth:** operational records live in structured tools; the LLM is an interface, not a replacement database.
-- **Identity:** property, booking, task and expense records use separate identifiers; do not join by display names.
-- **Idempotency:** repeated requests should not silently create duplicates.
-- **Permissions:** guest and owner details stay in private company systems. Public demos use synthetic records.
-- **Human-in-the-loop:** financial approvals, guest commitments and destructive changes remain explicit actions.
-- **Observability:** errors, stale data and unmatched records must be visible rather than covered with optimistic UI messages.
-
-## Why this is a portfolio case and not an open-source product
-
-The workflows were created for an actual operation, but the original repositories and production data are not publicly available. The architecture and interface recreations are based on implemented workflows and source documentation, but they are **not pixel-perfect screenshots of deployed company systems**. No percentage of time saved or ROI is claimed without measurement. The value shown here is operational systems thinking, implementation through AI-assisted tools and practical troubleshooting.
-
-See also the public code examples: [RentGram](https://github.com/AlenaYashkina/rent_gram), [Cluster Forge](https://github.com/AlenaYashkina/cluster-forge), and [Photo Report Generator](https://github.com/AlenaYashkina/photo-report-generator).
+[Technical verification notes](technical-verification.md) · [Public code examples](https://github.com/AlenaYashkina)
