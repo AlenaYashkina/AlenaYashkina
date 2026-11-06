@@ -4,7 +4,9 @@
 **Stack:** Jira · Supabase · Google Sheets · Apps Script · lightweight web forms · LLM workflows  
 **Scope:** real operational work; diagrams and all records below are anonymized or fictional.
 
-![Anonymized operational workflow architecture](ops-architecture.svg)
+![System-specific data flows across Telegram, Supabase, Jira, finance tools and scheduled publishing](ops-architecture.svg)
+
+The diagram separates **four implemented workflows**, rather than suggesting that guest conversations, Jira issues, financial records and social posting all pass through a single pipeline. It describes integrations at the system level without exposing endpoints, credentials, customer details or private repositories.
 
 ## The problem
 
@@ -56,43 +58,45 @@ A fictional employee enters a 25 GEL repair expense using an internal form. Anot
 
 **Acceptance criteria used when reviewing this kind of workflow:** a stable row ID, read-after-write confirmation, timestamp and currency validation, duplicate handling, and a clear error state when the source table cannot be reached. A good-looking interface alone is not proof that its data is synchronized.
 
-## Three representative workflows — fictional UI illustrations
+## Three workflows · recreated from actual tools, with synthetic records
 
-The following **schematic mock screens were created specifically for this portfolio** using invented data. They explain actual kinds of operational workflows; they are **not captures or exports of company software**, and their displayed totals are not measured business outcomes.
+These screens **reconstruct the layout and task flow** of internal tooling used in day-to-day operations: a spreadsheet-backed expense interface, an owner settlement/reporting workflow, and an assistant retrieving guest messages from a private database. They use real types of controls, calculations and integration boundaries. **All apartment IDs, people, dates, financial values and messages are invented.** They are not pixel-for-pixel screenshots from the internal deployment.
 
-### 1. Expenses and reimbursements: form ↔ shared ledger
+### 1. Expense management and employee reimbursements
 
-![Fictional expense review interface](screens/expenses.svg)
+![Expense and reimbursement interface recreated with fictional rows](screens/expenses.svg)
 
-**Problem:** teammates enter expenses through different routes, including a lightweight form and direct spreadsheet entry. A dashboard built from stale local state risks silently omitting valid rows.
+**Real workflow:** entries are created or reviewed through a lightweight browser interface, while a Google Sheet is also used to record expenses and employee reimbursements. The workflow has to reconcile entries regardless of whether a colleague entered them in the form or in the spreadsheet.
 
-**Input → interaction → output:** a fictional `DEMO-A101` repair expense for 25 GEL is submitted; the shared ledger returns a stable ID and visible approval status. Changes made directly in the source sheet must appear after refresh.
+**Displayed scenario:** choose the month and property, filter status, inspect entries from the web form or Google Sheets, and check pending versus approved reimbursements. The displayed sample amounts and employee labels are fictional.
 
-**Verification contract:** same row IDs in the sheet and UI, no duplicates from retried submissions, currency and amount validation, explicit read/write failures, and approval kept with the responsible person. This is a design and review pattern, **not a claim that perfect synchronization was independently audited**.
+**Technical boundaries:** Google Sheets is the expense ledger; the UI needs to refresh source rows and surface write/read failures. The illustration is not a claim that all data synchronization edge cases have been independently tested.
 
-### 2. Owner reports: consolidate → reconcile → review
+### 2. Owner settlement reports with PDF export
 
-![Fictional owner reporting interface](screens/owners.svg)
+![Owner statement workflow reconstructed from actual reporting features](screens/owners.svg)
 
-**Problem:** a report must reconcile booking amounts, expense records, property identifiers and periods without guessing who owes what.
+**Real workflow:** import bookings for the selected property and period, calculate amounts attributable to an owner, convert currency using the National Bank of Georgia rate, incorporate expenses, review the settlement and save the statement as a PDF.
 
-**Input → interaction → output:** choose fictional property `DEMO-A101` and October 2026, inspect bookings and expenses, produce a *draft* owner statement for manual review. The 2,400 GEL and 180 GEL on this illustration are **invented example numbers**.
+**Displayed scenario:** a fictional property with three bookings, a sample USD/GEL rate and deductions. This screen follows the actual business structure of the report: **Bookings → Expenses → Final settlement**, including owner amounts, currency conversion and net owner income. Neither the numbers nor the apartment refer to a real owner.
 
-**Verification contract:** exact property and reporting-period filters, traceable source records, visible missing entries, correct expense treatment, and approval before sharing. Financial reports must not be sent solely because an assistant generated them.
+**Technical boundaries:** a displayed exchange rate needs a source and reporting date; financial periods, booking ownership and expenses must be checked before PDF export. The real PDF format informed this sanitized layout; no real PDF or client details are embedded.
 
-### 3. Guest questions: retrieve → propose → confirm
+### 3. ChatGPT-assisted guest conversation search
 
-![Fictional guest-support and issue workflow](screens/guest-assistant.svg)
+![Assistant conversation with retrieved Telegram records and a manually reviewed draft](screens/guest-assistant.svg)
 
-**Problem:** guests expect answers about faults, but information is split between messages, apartment data and maintenance tickets. An LLM should not promise a technician arrival before anyone has agreed on it.
+**Real workflow:** a Telegram listener stores incoming and outgoing messages in Supabase through an ingestion function. The database associates people, chats, messages and bookings; ChatGPT can retrieve relevant history and help prepare a proposed reply. A staff member checks, edits and sends the message.
 
-**Input → interaction → output:** a fictional guest reports no hot water; the operator retrieves apartment context and issue status, reviews a proposed neutral reply, and optionally creates or updates the linked Jira follow-up. **The human edits and approves any outgoing message.**
+**Displayed scenario:** an operator searches for a fictional guest's hot-water complaint and receives two cited messages plus a suggested reply. The illustration follows the **actual assistant-based workflow**, not a fictional standalone guest-support product.
 
-**Verification contract:** property/booking IDs must resolve unambiguously, source references and ticket statuses stay available for review, actions require confirmation, and failures should surface rather than being hidden by confident text.
+**Technical boundaries:** retrieval must respect chat exclusions and message identity; ChatGPT text is a draft, not an automatically sent message. Muted or excluded chats are not treated as searchable sources.
 
-### Auto-posting boundary
+### 4. Scheduled listing publisher
 
-Social-content automation is part of the operations context, but a publicly reproducible posting flow, validated schedule and publication receipts are **not available in this case**. I therefore do not claim a tested autonomous publisher, guaranteed posting cadence, or measurable social-media impact. This is a boundary of the evidence, not a substitute demo.
+The internal publishing tool has controls for **Telegram destination chats, properties, listing text, photos and a publication queue**. It schedules posts and includes background execution/restart handling. This is a separate integration path in the architecture diagram, not a feature of the expense UI or guest conversation search.
+
+The public portfolio shows the architecture and scope, not real posting logs, private channels or credentials. No unmeasured reach, delivery-rate or time-savings claim is made.
 
 ## System design decisions
 
@@ -105,6 +109,6 @@ Social-content automation is part of the operations context, but a publicly repr
 
 ## Why this is a portfolio case and not an open-source product
 
-The workflows were created for an actual operation, but the original repositories and production data are not publicly available. The diagram and examples describe the process; they are **not screenshots of deployed company systems**. No percentage of time saved or ROI is claimed without measurement. The value shown here is operational systems thinking, implementation through AI-assisted tools and practical troubleshooting.
+The workflows were created for an actual operation, but the original repositories and production data are not publicly available. The architecture and interface recreations are based on implemented workflows and source documentation, but they are **not pixel-perfect screenshots of deployed company systems**. No percentage of time saved or ROI is claimed without measurement. The value shown here is operational systems thinking, implementation through AI-assisted tools and practical troubleshooting.
 
 See also the public code examples: [RentGram](https://github.com/AlenaYashkina/rent_gram), [Cluster Forge](https://github.com/AlenaYashkina/cluster-forge), and [Photo Report Generator](https://github.com/AlenaYashkina/photo-report-generator).
