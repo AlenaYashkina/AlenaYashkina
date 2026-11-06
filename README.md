@@ -43,4 +43,6 @@ A configurable pipeline for reading dated photo folders, processing and stamping
 
 ## Get in touch
 
+Email: alenaiashkina1@gmail.com
+
 [GitHub](https://github.com/AlenaYashkina) · [Telegram](https://t.me/alena_yashkina) · [LinkedIn](https://www.linkedin.com/in/alena-yashkina)
