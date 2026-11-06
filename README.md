@@ -39,6 +39,8 @@ A configurable pipeline for reading dated photo folders, processing and stamping
 
 **Technical background:** Git/GitHub, APIs, LLM tools, Python/JavaScript projects (AI-assisted implementation), JSON, spreadsheets, Jira and Supabase. Previous domain: AutoCAD, DIALux, 3ds Max, Photoshop, technical drawings and documentation.
 
+[Technical verification and reproducibility notes](cases/technical-verification.md) — dated CI runs, test scope, privacy scans and remaining limits.
+
 ## Get in touch
 
 [GitHub](https://github.com/AlenaYashkina) · [Telegram](https://t.me/alena_yashkina) · [LinkedIn](https://www.linkedin.com/in/alena-yashkina)
