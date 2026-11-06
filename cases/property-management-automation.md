@@ -56,6 +56,44 @@ A fictional employee enters a 25 GEL repair expense using an internal form. Anot
 
 **Acceptance criteria used when reviewing this kind of workflow:** a stable row ID, read-after-write confirmation, timestamp and currency validation, duplicate handling, and a clear error state when the source table cannot be reached. A good-looking interface alone is not proof that its data is synchronized.
 
+## Three representative workflows — fictional UI illustrations
+
+The following **schematic mock screens were created specifically for this portfolio** using invented data. They explain actual kinds of operational workflows; they are **not captures or exports of company software**, and their displayed totals are not measured business outcomes.
+
+### 1. Expenses and reimbursements: form ↔ shared ledger
+
+![Fictional expense review interface](screens/expenses.svg)
+
+**Problem:** teammates enter expenses through different routes, including a lightweight form and direct spreadsheet entry. A dashboard built from stale local state risks silently omitting valid rows.
+
+**Input → interaction → output:** a fictional `DEMO-A101` repair expense for 25 GEL is submitted; the shared ledger returns a stable ID and visible approval status. Changes made directly in the source sheet must appear after refresh.
+
+**Verification contract:** same row IDs in the sheet and UI, no duplicates from retried submissions, currency and amount validation, explicit read/write failures, and approval kept with the responsible person. This is a design and review pattern, **not a claim that perfect synchronization was independently audited**.
+
+### 2. Owner reports: consolidate → reconcile → review
+
+![Fictional owner reporting interface](screens/owners.svg)
+
+**Problem:** a report must reconcile booking amounts, expense records, property identifiers and periods without guessing who owes what.
+
+**Input → interaction → output:** choose fictional property `DEMO-A101` and October 2026, inspect bookings and expenses, produce a *draft* owner statement for manual review. The 2,400 GEL and 180 GEL on this illustration are **invented example numbers**.
+
+**Verification contract:** exact property and reporting-period filters, traceable source records, visible missing entries, correct expense treatment, and approval before sharing. Financial reports must not be sent solely because an assistant generated them.
+
+### 3. Guest questions: retrieve → propose → confirm
+
+![Fictional guest-support and issue workflow](screens/guest-assistant.svg)
+
+**Problem:** guests expect answers about faults, but information is split between messages, apartment data and maintenance tickets. An LLM should not promise a technician arrival before anyone has agreed on it.
+
+**Input → interaction → output:** a fictional guest reports no hot water; the operator retrieves apartment context and issue status, reviews a proposed neutral reply, and optionally creates or updates the linked Jira follow-up. **The human edits and approves any outgoing message.**
+
+**Verification contract:** property/booking IDs must resolve unambiguously, source references and ticket statuses stay available for review, actions require confirmation, and failures should surface rather than being hidden by confident text.
+
+### Auto-posting boundary
+
+Social-content automation is part of the operations context, but a publicly reproducible posting flow, validated schedule and publication receipts are **not available in this case**. I therefore do not claim a tested autonomous publisher, guaranteed posting cadence, or measurable social-media impact. This is a boundary of the evidence, not a substitute demo.
+
 ## System design decisions
 
 - **Source of truth:** operational records live in structured tools; the LLM is an interface, not a replacement database.
