@@ -15,7 +15,7 @@ Check the latest project workflow runs if the default branch moved after this re
 
 ## Secret scanning
 
-`Gitleaks v8.30.1` ran with `git --redact --log-opts="--all"` and a full-ref checkout on **six** accessible repositories. All returned `no leaks found` (known-token-pattern scan, not an independent privacy certification).
+`Gitleaks v8.30.1` ran with `git --redact --log-opts="--all"` and a full-ref checkout on **five featured portfolio repositories**. All returned `no leaks found` (known-token-pattern scan, not an independent privacy certification).
 
 | Repo | Git commits scanned | Executed run |
 | --- | ---: | --- |
@@ -24,9 +24,8 @@ Check the latest project workflow runs if the default branch moved after this re
 | Cluster Forge | 22 | [History scan](https://github.com/AlenaYashkina/cluster-forge/actions/runs/42192817542) |
 | Photo Report Generator | 20 | [History scan](https://github.com/AlenaYashkina/photo-report-generator/actions/runs/42192834132) |
 | Telegram Media Loader | 15 | [History scan](https://github.com/AlenaYashkina/tg_media_loader/actions/runs/42192850858) |
-| Archived technical assignment | 18 | [History scan](https://github.com/AlenaYashkina/testing/actions/runs/42192870320) |
 
-Total: **136 scanned commits**, as reported by GitHub Actions. Results may change if new commits are added or secret patterns evolve. Scan outputs do not prove that historic third-party phone numbers and posts are absent.
+Total: **118 scanned commits**, as reported by GitHub Actions. Results may change if new commits are added or secret patterns evolve. Scan outputs do not prove that historic third-party phone numbers and posts are absent.
 
 ## Sample-media metadata inventory
 
@@ -41,7 +40,6 @@ A separate non-destructive script enumerated **1,558 images** and **6 Office doc
 - **Report reproducibility:** the small photo-slide component was verified on Windows, but the entire multi-month worksite-report workflow was **not** executed end-to-end from a clean dataset.
 - **Third-party services:** availability of public Netlify/Vercel deployments was **not** visually confirmed during this record. A passing CI build does not replace a browser check.
 - **Historic data:** current demonstration datasets no longer include original Telegram contacts/exports, but removing current files does not erase previous Git commits.
-- **CRM:** a former technical assignment is **not featured** in the portfolio. Its repository visibility is an account-administration setting, not changed by this verification.
 
 ## Reviewer quick checks
 
