@@ -67,7 +67,7 @@ The tests do not substitute for testing actual Telegram account authentication, 
 
 ### Visible portfolio case evidence
 
-The [property-management case](property-management-automation.md) now includes three **fictional, clearly labeled** UI illustrations of expenses/reimbursements, owner-report preparation, and LLM-assisted guest responses requiring human approval. They represent workflow design, not captured private operational systems.
+The [property-management case](property-management-automation.md) explains the connected Supabase ↔ ChatGPT ↔ Jira workflow using verified integration documentation and **two** synthetic UI reconstructions (expenses/reimbursements and owner reports). The separate invented guest-support screen was removed: ChatGPT retrieval and human-reviewed replies are described in text, because no standalone support dashboard is deployed. These are not captures of production records.
 
 ### Access and privacy actions not verifiable from CI
 
