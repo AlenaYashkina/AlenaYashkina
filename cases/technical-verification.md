@@ -37,8 +37,8 @@ A separate non-destructive script enumerated **1,558 images** and **6 Office doc
 
 - **Demo vs integration:** public RentGram examples and the small report/Telegram samples are synthetic. Their outputs are not proof of rental availability, work completion or production uptime.
 - **CLIP evaluation:** filesystem safety and undo were tested; end-to-end CLIP quality on a separately labeled validation image dataset has **not** been measured. Similarity thresholds are not classification accuracy.
-- **Report reproducibility:** the small photo-slide component was verified on Windows, but the entire multi-month worksite-report workflow was **not** executed end-to-end from a clean dataset.
-- **Third-party services:** availability of public Netlify/Vercel deployments was **not** visually confirmed during this record. A passing CI build does not replace a browser check.
+- **Report reproducibility:** a complete single-day workflow was executed on Windows from two generated photos with actual parsing and PPTX output; the much larger multi-month archival dataset and every production configuration are **not** fully covered.
+- **Third-party services:** the published RentGram Netlify demo was tested in real Chromium and displayed nonempty synthetic listing cards with no NDJSON parsing errors. This does not establish future uptime. The retired CRM's Vercel site is still outside the featured portfolio and should be disabled separately.
 - **Historic data:** current demonstration datasets no longer include original Telegram contacts/exports, but removing current files does not erase previous Git commits.
 
 ## Reviewer quick checks
@@ -49,3 +49,28 @@ A separate non-destructive script enumerated **1,558 images** and **6 Office doc
 4. **Telegram loader:** `python -m pip install -e . && python examples/offline_layout_demo.py`; no Telegram account required.
 
 This document records actual automated results, not fabricated productivity metrics or proof of live services. It is deliberately separate from the concise recruiter-oriented front page.
+
+
+## Follow-up verification — 2026-11-06
+
+Subsequent fixes were exercised, not inferred from code inspection alone:
+
+| Project | Regression check | Evidence |
+| --- | --- | --- |
+| RentGram | Correctly parse static NDJSON and fallback JSON API; reject malformed data; frontend tests and build passed | [Parser fix PR #12](https://github.com/AlenaYashkina/rent_gram/pull/12) |
+| RentGram published website | Chromium visited `https://rent-gram.netlify.app/`; asserted the listing count was above zero, at least one card rendered, and no parser exceptions. Screenshot was recorded as a CI artifact | [Live browser test run](https://github.com/AlenaYashkina/rent_gram/actions/runs/42235311644) · [PR #14](https://github.com/AlenaYashkina/rent_gram/pull/14) |
+| Cluster Forge | Failed automatic moves leave images in manual queue; successful move removes only its source; Python 3.11 clean install (including real CLIP module imports) and React build all passed | [Backend install/build](https://github.com/AlenaYashkina/cluster-forge/actions/runs/42233808001) · [Queue regression tests](https://github.com/AlenaYashkina/cluster-forge/actions/runs/42233807900) · [PR #9](https://github.com/AlenaYashkina/cluster-forge/pull/9) |
+| Photo Report Generator | Actual `main.py` orchestration on a small synthetic folder, real PPTX with embedded photos, source hashes unchanged | [Full pipeline Windows run](https://github.com/AlenaYashkina/photo-report-generator/actions/runs/42234447855) · [PR #9](https://github.com/AlenaYashkina/photo-report-generator/pull/9) |
+| Telegram Media Loader | Real downloader workflow with injected fictional Telegram messages, including SQLite and NDJSON, UTC date boundaries and rerun deduplication | [Fake-client CI](https://github.com/AlenaYashkina/tg_media_loader/actions/runs/42234139045) · [PR #8](https://github.com/AlenaYashkina/tg_media_loader/pull/8) |
+
+The tests do not substitute for testing actual Telegram account authentication, all production reporting configurations, CLIP classification quality, or permission controls on the user's hosted CRM environment.
+
+### Visible portfolio case evidence
+
+The [property-management case](property-management-automation.md) now includes three **fictional, clearly labeled** UI illustrations of expenses/reimbursements, owner-report preparation, and LLM-assisted guest responses requiring human approval. They represent workflow design, not captured private operational systems.
+
+### Access and privacy actions not verifiable from CI
+
+- The CRM technical-assignment repository `AlenaYashkina/testing` must be set to **Private** in GitHub settings and the Vercel site `project-tgn4y` disabled or protected, including older deployment URLs; removing its profile link and scheduled sync does not close access.
+- The public GitHub profile sidebar contact should use the same verified Telegram handle as README: `@alena_yashkina`. The repository's About description for Cluster Forge should be clarified; repo text edits cannot update either account-level setting.
+- Existing photo and presentation pixels still require a **human visual and publication-rights review**. Automated token-pattern, EXIF and Office metadata checks do not clear faces, addresses, signage or copyrighted content. A local-only contact-sheet/checklist generator exists in the photo-report repository; its output should stay private.
